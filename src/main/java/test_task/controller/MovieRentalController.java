@@ -48,7 +48,7 @@ public class MovieRentalController {
     }
 
     public boolean canClientAffordMovieRent(Client client, Movie movie) throws NoEnoughMoneyException {
-        boolean canRent = client.moneyBalance >= countRentalPrice(movie.priceClass);;
+        boolean canRent = client.moneyBalance >= countRentalPrice(movie.priceClass);
         if (!canRent) {
             throw new NoEnoughMoneyException(client.name + " hasn't enough money to rent this movie");
         }

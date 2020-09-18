@@ -1,14 +1,14 @@
 package test_task.models;
 
+import test_task.helpers.MovieCategory;
+
 public class MovieShelf {
 
-    public String categoryName;
+    public MovieCategory categoryName;
 
-    public String getCategoryName() {
+    public MovieCategory getCategoryName() {
         return categoryName;
     }
 
-    public void setCategoryName(String categoryName) {
-        this.categoryName = categoryName;
-    }
+
 }

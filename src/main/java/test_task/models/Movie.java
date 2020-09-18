@@ -23,38 +23,6 @@ public class Movie {
         this.priceClass = priceClass;
     }
 
-    public PriceClass getPriceClass() {
-        return priceClass;
-    }
-
-    public void setPriceClass(PriceClass priceClass) {
-        this.priceClass = priceClass;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public Long getCode() {
-        return code;
-    }
-
-    public void setCode(Long code) {
-        this.code = code;
-    }
-
-    public MovieCategory getCategory() {
-        return category;
-    }
-
-    public void setCategory(MovieCategory category) {
-        this.category = category;
-    }
-
     @Override
     public String toString() {
         return "Movie{" +

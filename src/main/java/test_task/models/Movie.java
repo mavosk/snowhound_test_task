@@ -1,30 +1,33 @@
 package test_task.models;
 
+import test_task.helpers.MovieCategory;
+import test_task.helpers.PriceClass;
+
 public class Movie {
 
     public String title;
     public Long code;
-    public String category;
-    public String priceClass;
+    public MovieCategory category;
+    public PriceClass priceClass;
 
-    public Movie(String title, Long code, String category) {
+    public Movie(String title, Long code, MovieCategory category) {
         this.title = title;
         this.code = code;
         this.category = category;
     }
 
-    public Movie(String title, Long code, String category, String priceClass) {
+    public Movie(String title, Long code, MovieCategory category, PriceClass priceClass) {
         this.title = title;
         this.code = code;
         this.category = category;
         this.priceClass = priceClass;
     }
 
-    public String getPriceClass() {
+    public PriceClass getPriceClass() {
         return priceClass;
     }
 
-    public void setPriceClass(String priceClass) {
+    public void setPriceClass(PriceClass priceClass) {
         this.priceClass = priceClass;
     }
 
@@ -44,11 +47,11 @@ public class Movie {
         this.code = code;
     }
 
-    public String getCategory() {
+    public MovieCategory getCategory() {
         return category;
     }
 
-    public void setCategory(String category) {
+    public void setCategory(MovieCategory category) {
         this.category = category;
     }
 

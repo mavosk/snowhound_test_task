@@ -1,4 +1,4 @@
-package test_task.controller;
+package test_task.helpers;
 
 import java.util.Random;
 

@@ -1,6 +1,7 @@
 package test_task.controller;
 
 
+import test_task.helpers.MovieCategory;
 import test_task.models.Movie;
 import test_task.models.MovieShelf;
 
@@ -26,7 +27,7 @@ public class MovieController {
         movieRental.remove(code);
     }
 
-    public List<Movie> getAllMoviesFromCertainCategory(String categoryName) {
+    public List<Movie> getAllMoviesFromCertainCategory(MovieCategory categoryName) {
         List<Movie> allMovies = new ArrayList<>(movieRental.values());
         return allMovies.stream().filter(x -> x.category.equals(categoryName))
                 .collect(Collectors.toList());

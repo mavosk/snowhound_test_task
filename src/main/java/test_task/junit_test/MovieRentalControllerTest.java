@@ -2,15 +2,14 @@ package test_task.junit_test;
 
 import org.junit.Assert;
 import org.junit.Test;
-import test_task.controller.HelperInterface;
-import test_task.controller.MovieController;
+import test_task.exceptionHandler.NoEnoughMoneyException;
+import test_task.helpers.HelperInterface;
 import test_task.controller.MovieRentalController;
+import test_task.helpers.MovieCategory;
+import test_task.helpers.PriceClass;
 import test_task.models.Client;
 import test_task.models.Movie;
 
-import java.util.Random;
-
-import static org.junit.Assert.*;
 
 public class MovieRentalControllerTest implements HelperInterface {
 
@@ -19,26 +18,25 @@ public class MovieRentalControllerTest implements HelperInterface {
 
 
     @Test
-    public void clientCanRentMovieWithGivenDays() {
+    public void clientCanRentMovieWithGivenDays() throws NoEnoughMoneyException {
         int days = 4;
-        Movie movie = new Movie("Mamma mia", generateCode(), "COMEDY", "LOW");
+        Movie movie = new Movie("Mamma mia", generateCode(), MovieCategory.COMEDY, PriceClass.LOW);
         boolean canAffordMovie = controller.canClientAffordMovieRent(client, days, movie);
         Assert.assertTrue(canAffordMovie);
     }
 
     @Test
-    public void clientCanRentMovieWithOutGivenDaya() {
-        Movie movie = new Movie("Shall we dance", generateCode(), "COMEDY", "HIGH");
+    public void clientCanRentMovieWithOutGivenDays() throws NoEnoughMoneyException {
+        Movie movie = new Movie("Shall we dance", generateCode(), MovieCategory.COMEDY, PriceClass.HIGH);
         boolean canAffordMovie = controller.canClientAffordMovieRent(client, movie);
         Assert.assertTrue(canAffordMovie);
     }
 
-    @Test
-    public void clientCannotRentMovieWithGivenDays() {
-        int days = 14;
-        Movie movie = new Movie("Mamma mia", generateCode(), "COMEDY", "HIGH");
-        boolean canAffordMovie = controller.canClientAffordMovieRent(client, days, movie);
-        Assert.assertFalse(canAffordMovie);
+    @Test(expected = NoEnoughMoneyException.class)
+    public void clientCannotRentMovieWithGivenDays() throws NoEnoughMoneyException {
+            int days = 14;
+            Movie movie = new Movie("Mamma mia", generateCode(), MovieCategory.COMEDY, PriceClass.HIGH);
+            controller.canClientAffordMovieRent(client, days, movie);
 
     }
 }
